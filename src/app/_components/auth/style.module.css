@@ -1,0 +1,10 @@
+.item {
+    background-color: rgb(3, 3, 3);
+            color: rgb(250, 250, 250);
+}
+
+.glassEffect {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
