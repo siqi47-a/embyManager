@@ -71,12 +71,12 @@
             'Courier', monospace;
 
         /* 默认文字颜色 */
-        --font-color-base: #2d2929;
+        --font-color-base: #fff;
 
         /* 链接文字颜色 */
-        --font-color-link: #131212;
+        --font-color-link: #fff;
 
         /* 鼠标移动到文字或链接上后的文字颜色 */
-        --font-color-link-hover: #0b0b0b;
+        --font-color-link-hover: #dbe0e5;
     }
 }

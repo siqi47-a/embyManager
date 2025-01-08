@@ -6,7 +6,7 @@ import './styles/prism.css';
 
 export const metadata: Metadata = {
     title: 'nextapp',
-    description: '3r教室Next.js全栈开发课程',
+    description: 'Emby影视库管理',
 };
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => (

@@ -1,27 +1,70 @@
 .nav {
-    @apply tw-flex tw-flex-auto tw-items-center tw-ml-10;
+  @apply tw-fixed tw-top-0 tw-z-50 tw-w-full tw-px-4 md:tw-px-6 tw-py-4;
 }
 
-.nav > .menus {
-    @apply tw-hidden md:tw-flex md:tw-flex-auto md:tw-max-w-full md:!tw-justify-start;
-}
+  .menus {
+    @apply glass-effect tw-rounded-full tw-mx-auto tw-max-w-7xl tw-px-4 md:tw-px-6 tw-py-3 tw-flex tw-items-center tw-justify-between;
+  }
 
-.nav > .menus .menu-item > a {
-    @apply tw-bg-transparent hover:tw-bg-transparent tw-duration-200 tw-inline-flex tw-py-0 tw-text-base;
+  .menu-item {
+    @apply tw-transition-all tw-duration-200;
+  }
 
-    &:hover {
-        @apply tw-font-bold;
-    }
-}
+  .menu-item-scrolled {
+    @apply tw-text-sm;
+  }
 
-.nav > .menus .menu-item:first-child > a {
-    @apply tw-pl-0;
-}
+  .menu-item-unscrolled {
+    @apply tw-text-base;
+  }
 
-.nav > .menus .menu-item-scrolled > a {
-    @apply tw-text-gray-700 hover:tw-text-gray-900;
-}
+  /* Glass effect */
+  .glass-effect {
+    @apply tw-bg-black/80 tw-backdrop-blur-md tw-border tw-border-white/20;
+  }
 
-.nav > .menus .menu-item-unscrolled > a {
-    @apply tw-text-gray-100/80 hover:tw-text-white;
-}
+  /* Mobile menu */
+  .mobile-menu {
+    @apply tw-hidden;
+  }
+
+  .mobile-menu.active {
+    @apply tw-block;
+  }
+
+  /* Image zoom effect */
+  .relative:hover .zoom-img {
+    @apply tw-scale-110;
+  }
+
+  .zoom-img {
+    @apply tw-transition-transform tw-duration-300 tw-ease-in-out;
+  }
+
+  /* Hide scrollbar */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    @apply tw-hidden;
+  }
+
+  /* Changelog dialog */
+  .changelog-dialog {
+    @apply tw-hidden tw-fixed tw-inset-0 tw-bg-black/50 tw-backdrop-blur-sm;
+  }
+
+  .changelog-dialog.active {
+    @apply tw-flex tw-items-center tw-justify-center;
+  }
+
+  .changelog-content {
+    @apply tw-bg-[rgb(3,3,3)] tw-border tw-border-white/20 tw-rounded-xl tw-p-6 tw-max-w-[90%] tw-w-[500px] tw-max-h-[90vh] tw-overflow-y-auto;
+  }
+
+  /* Version tag */
+  .version-tag {
+    @apply tw-inline-block tw-px-2 tw-py-0.5 tw-text-xs tw-font-bold tw-leading-none tw-text-white tw-bg-[#28a745] tw-rounded;
+  }
