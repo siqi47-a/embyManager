@@ -8,32 +8,35 @@ import { useState } from 'react';
 import { NavigationMenu, NavigationMenuList } from '../shadcn/ui/navigation-menu';
 import $styles from './nav.module.css';
 
-const items = [
-    { title: '首页', href: '/media', icon: Home },
-    {
-        title: 'GitHub',
-        href: 'https://github.com/RandallAnjie/EmbyController',
-        external: true,
-        icon: Code,
-    },
-    {
-        title: 'Telegram群组',
-        href: 'https://t.me/randall_home',
-        external: true,
-        icon: MessageCircle,
-    },
-    { title: '站点日志', href: '#', onClick: true, icon: Lock },
-    { title: '回到控制台', href: '/media/user/index', auth: true, icon: LogIn },
-    { title: '登录', href: '/media/user/login', auth: false, icon: LogIn },
-    { title: '注册', href: '/media/user/register', auth: false, icon: UserPlus },
-];
-
 export const HeaderNav: FC<{ scrolled: boolean; isLoggedIn?: boolean }> = ({
     scrolled,
     isLoggedIn = false,
 }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isChangelogOpen, setIsChangelogOpen] = useState(false);
+
+    const items = [
+        { title: '首页', href: '/media', icon: Home },
+        {
+            title: 'GitHub',
+            href: 'https://github.com/RandallAnjie/EmbyController',
+            external: true,
+            icon: Code,
+        },
+        {
+            title: 'Telegram群组',
+            href: 'https://t.me/randall_home',
+            external: true,
+            icon: MessageCircle,
+        },
+        { title: '站点日志', href: '#', onClick: true, icon: Lock },
+        ...(isLoggedIn
+            ? [{ title: '回到控制台', href: '/media/user/index', auth: true, icon: LogIn }]
+            : [
+                  { title: '登录', href: '/media/user/login', auth: false, icon: LogIn },
+                  { title: '注册', href: '/media/user/register', auth: false, icon: UserPlus },
+              ]),
+    ];
 
     return (
         <nav className={$styles.nav}>
