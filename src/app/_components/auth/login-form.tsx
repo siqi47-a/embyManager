@@ -67,6 +67,7 @@ export const AuthLoginForm: FC = () => {
                                                     {...field}
                                                     id="credential"
                                                     className="tw-pl-10"
+                                                    placeholder="请输入用户名"
                                                     disabled={form.formState.isSubmitting}
                                                 />
                                             </div>

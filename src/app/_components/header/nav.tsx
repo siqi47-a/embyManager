@@ -25,7 +25,7 @@ export const HeaderNav: FC<{ scrolled: boolean; isLoggedIn?: boolean }> = ({
         },
         {
             title: 'Telegram群组',
-            href: 'https://t.me/randall_home',
+            href: 'https://t.me',
             external: true,
             icon: MessageCircle,
         },
@@ -89,9 +89,37 @@ export const HeaderNav: FC<{ scrolled: boolean; isLoggedIn?: boolean }> = ({
                     </NavigationMenuList>
                 </NavigationMenu>
 
-                {/* 移动端菜单 */}
+                {/* 移动端导航菜单 */}
                 <div className={cn($styles['mobile-menu'], isMobileMenuOpen && $styles.active)}>
-                    {/* 移动端菜单内容 */}
+                    <div className="tw-absolute tw-inset-x-0 tw-top-full tw-mt-2 tw-p-4 md:tw-hidden">
+                        <div className="glass-effect tw-flex tw-flex-col tw-space-y-4 tw-rounded-lg tw-p-4">
+                            {items.map((item) => {
+                                if (item.auth === true && !isLoggedIn) return null;
+                                if (item.auth === false && isLoggedIn) return null;
+
+                                return item.onClick ? (
+                                    <button
+                                        key={item.title}
+                                        className="tw-flex tw-items-center tw-space-x-2 tw-transition-colors hover:tw-text-white/80"
+                                        onClick={() => setIsChangelogOpen(true)}
+                                    >
+                                        {item.icon && <item.icon className="tw-h-5 tw-w-5" />}
+                                        <span>{item.title}</span>
+                                    </button>
+                                ) : (
+                                    <Link
+                                        key={item.title}
+                                        href={item.href}
+                                        className="tw-flex tw-items-center tw-space-x-2 tw-transition-colors hover:tw-text-white/80"
+                                        {...(item.external ? { target: '_blank' } : {})}
+                                    >
+                                        {item.icon && <item.icon className="tw-h-5 tw-w-5" />}
+                                        <span>{item.title}</span>
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </div>
 
                 {/* 更新日志对话框 */}

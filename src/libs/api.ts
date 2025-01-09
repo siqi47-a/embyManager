@@ -37,6 +37,15 @@ const honoApi = hc<AppType>(appConfig.baseUrl, {
 });
 
 /**
+ * 定义 API 返回类型
+ */
+interface StatsResponse {
+    allRegisterUserCount: number;
+    todayLoginUserCount: number;
+    latestMediaComment: any; // 根据实际结构更新类型
+}
+
+/**
  * 在服务端组件中请求hono api
  * @param run
  */
@@ -53,7 +62,7 @@ const fetchApi = async <F extends (c: ReturnType<typeof hc<AppType>>) => Promise
             return new Promise(() => {}); // 防止后续代码执行
         }
     }
-    return result;
+    return result.json(); // 确保返回 JSON 数据
 };
 
 export { fetchApi, honoApi };
