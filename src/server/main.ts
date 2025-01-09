@@ -5,12 +5,13 @@ import { prettyJSON } from 'hono/pretty-json';
 import { authApi } from './auth/api';
 import { createHonoApp } from './common/utils';
 import { postApi } from './post/api';
+import { statsApi } from './stats/api';
 
 const app = createHonoApp().basePath('/api');
 app.use(prettyJSON());
 app.get('/', (c) => c.text('3R Blog API'));
 app.notFound((c) => c.json({ message: 'Not Found', ok: false }, 404));
-const routes = app.route('/posts', postApi).route('/auth', authApi);
+const routes = app.route('/posts', postApi).route('/auth', authApi).route('/stats', statsApi);
 type AppType = typeof routes;
 app.doc('/swagger', {
     openapi: '3.1.0',

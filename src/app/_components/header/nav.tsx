@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
 import { cn } from '@/app/_components/shadcn/utils';
-import { Code, Home, Lock, LogIn, MessageCircle, UserPlus } from 'lucide-react';
+import { Code, Lock, LogIn, MessageCircle, UserPlus } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -16,7 +16,6 @@ export const HeaderNav: FC<{ scrolled: boolean; isLoggedIn?: boolean }> = ({
     const [isChangelogOpen, setIsChangelogOpen] = useState(false);
 
     const items = [
-        { title: '首页', href: '/media', icon: Home },
         {
             title: 'GitHub',
             href: 'https://github.com/RandallAnjie/EmbyController',

@@ -21,10 +21,7 @@ const NavigationMenuList = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <NavigationMenuPrimitive.List
         ref={ref}
-        className={cn(
-            'tw-group tw-flex tw-flex-1 tw-list-none tw-items-center tw-justify-center tw-space-x-1',
-            className,
-        )}
+        className={cn('tw-hidden tw-items-center tw-space-x-8 md:tw-flex', className)}
         {...props}
     />
 ));

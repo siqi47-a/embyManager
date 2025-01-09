@@ -1,8 +1,11 @@
 import type { FC } from 'react';
 
+import { Button } from '@/app/_components/shadcn/ui/button';
 import { fetchApi } from '@/libs/api';
 import { Users } from 'lucide-react';
 import Image from 'next/image';
+
+import backGround from '../styles/images/media-background.jpeg';
 
 const HomePage: FC = async () => {
     // 获取统计数据
@@ -10,40 +13,32 @@ const HomePage: FC = async () => {
     const { allRegisterUserCount, todayLoginUserCount, latestMediaComment } = stats;
 
     return (
-        <main className="pt-24">
+        <main className="tw-pt-24">
             {/* Hero区域 */}
-            <div className="relative min-h-[90vh] md:min-h-screen">
-                <div className="absolute top-0 left-0 right-0 z-10 pt-24 md:pt-32 px-4 md:px-6 text-center md:text-left md:ml-40 lg:ml-64">
-                    <span className="inline-block glass-effect px-3 py-1 rounded-full text-sm mb-4">
+            <div className="tw-relative tw-min-h-[90vh] md:tw-min-h-screen">
+                <div className="tw-absolute tw-inset-x-0 tw-top-0 tw-z-10 tw-px-4 tw-pt-24 tw-text-center md:tw-ml-40 md:tw-px-6 md:tw-pt-32 md:tw-text-left lg:tw-ml-64">
+                    <span className="glass-effect tw-mb-4 tw-inline-block tw-rounded-full tw-px-3 tw-py-1 tw-text-sm">
                         欢迎来到思奇
                     </span>
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
+                    <h1 className="tw-mb-4 tw-text-3xl tw-font-bold md:tw-text-5xl lg:tw-text-6xl">
                         专业的影视管理平台
                     </h1>
                 </div>
 
                 {/* 背景图片和渐变 */}
-                <div className="absolute inset-0">
-                    <Image
-                        src="/static/media/img/media-background.jpeg"
-                        alt="Background"
-                        fill
-                        className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
+                <div className="tw-absolute tw-inset-0">
+                    <Image src={backGround} alt="Background" fill className="object-cover" />
+                    <div className="tw-absolute tw-inset-0 tw-bg-gradient-to-r tw-from-black tw-via-black/50 tw-to-transparent" />
                 </div>
 
                 {/* 主要内容区域 */}
-                <div className="relative h-full flex items-center px-4 md:px-6">
-                    <div className="max-w-2xl mx-auto md:ml-40 lg:ml-64 animate-fade-in mt-64">
-                        <p className="text-base md:text-lg text-white/80 mb-8">
+                <div className="tw-relative tw-flex tw-h-full tw-items-center tw-px-4 md:tw-px-6">
+                    <div className="tw-animate-fade-in tw-mx-auto tw-mt-64 tw-max-w-2xl md:tw-ml-40 lg:tw-ml-64">
+                        <p className="tw-mb-8 tw-text-base tw-text-white/80 md:tw-text-lg">
                             由siqi.com提供技术支持，为您带来优质的影视及管理服务。多条线路保障，稳定可靠的观影体验。
                         </p>
                         {/* 这里需要根据用户登录状态显示不同按钮 */}
-                        <button
-                            onClick={() => (window.location.href = '/media/user/login')}
-                            className="glass-effect w-full md:w-auto px-6 md:px-8 py-3 md:py-4 rounded-full flex items-center justify-center space-x-2 hover:bg-white/20 transition-all duration-300"
-                        >
+                        <Button className="glass-effect tw-flex tw-w-full tw-items-center tw-justify-center tw-space-x-2 tw-rounded-full tw-px-6 tw-py-3 tw-transition-all tw-duration-300 hover:tw-bg-white/20 md:tw-w-auto md:tw-px-8 md:tw-py-4">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5 md:h-6 md:w-6"
@@ -65,7 +60,7 @@ const HomePage: FC = async () => {
                                 />
                             </svg>
                             <span>立即体验</span>
-                        </button>
+                        </Button>
                     </div>
                 </div>
             </div>
